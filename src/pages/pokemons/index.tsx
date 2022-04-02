@@ -85,11 +85,9 @@ export const Pokemons = () => {
                 })}
             </ul>
             <ul className="pagination">
-
                 <li className="page-item">
                     <button onClick={handlePrevious} className="page-link">Previous</button>
                 </li> 
-
                 <li className="page-item">
                     <button onClick={handleNext} className="page-link">Next</button>
                 </li>
