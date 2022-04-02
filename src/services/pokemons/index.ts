@@ -2,7 +2,7 @@ import { request } from "http"
 import { AllBerriesType } from "../../ts/berries"
 import { PokemonsType } from "../../ts/pokemons"
 import { allPokemonsUrl } from "../api"
-import { EvolutionChainsType } from "../../ts/evolution"
+import { PokemonEvolutionChainsType } from "../../ts"
 
 export const getAllPokemons = async (url = allPokemonsUrl) => {
     const request = await fetch(url)
@@ -16,6 +16,6 @@ export const getAllBerries = async () => {
 }
 export const getAllEvolutionChainsType = async () => {
     const request = await fetch('https://pokeapi.co/api/v2/evolution-chain/')
-    const response: EvolutionChainsType = await request.json()
+    const response: PokemonEvolutionChainsType = await request.json()
     return response
 }

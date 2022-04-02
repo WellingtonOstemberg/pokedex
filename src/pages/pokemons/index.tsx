@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { setPokemons } from "../../redux/reducers/pokemonsReducer"
-import { getAllBerries, getAllPokemons } from "../../services/pokemons"
-import { PokemonsResultsSubType, PokemonsType, AllBerriesType, EvolutionChainsType} from "../../ts"
+import { getAllBerries, getAllEvolutionChainsType, getAllPokemons } from "../../services/pokemons"
+import { PokemonsResultsSubType, PokemonsType, AllBerriesType, PokemonEvolutionChainsType} from "../../ts"
 import {Navigate} from 'react-router-dom'
 import { setBerries } from "../../redux/reducers/berriesReducer"
-import {setPokemonEvolutionChains} from "../../redux/reducers"
+import { setEvolutionChains } from "../../redux/reducers/evolutionReducer"
 
 export const Pokemons = () => {
     const pokemons = useAppSelector(state => state.pokemons)
@@ -17,8 +17,8 @@ export const Pokemons = () => {
     useEffect(() => {
         const fillEvolution = async () => {
           const changeEvolution = (evolution: PokemonEvolutionChainsType) =>
-          dispatch(setPokemonEvolutionChains (evolution));
-            const response = await getPokemonEvolutionChainsType()
+          dispatch(setEvolutionChains(evolution));
+            const response = await getAllEvolutionChainsType()
             changeEvolution(response)
         }
         fillEvolution()
@@ -47,8 +47,8 @@ export const Pokemons = () => {
     }, [dispatch])
 
     useEffect(() => {
-      console.log(pokemons, 'estado global');
-    }, [pokemons])
+      console.log(evolution, 'estado global do evolution');
+    }, [evolution])
 
     const  handlePrevious = () => {
         if (pokemons.all.previous) {

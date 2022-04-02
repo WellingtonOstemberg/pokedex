@@ -1,26 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { PokemonEvolutionChainsType } from '../../ts/evolution'
+import { PokemonEvolutionChainsType, PokemonBerryType} from '../../ts'
 
-export interface EvolutionsState {
+export interface EvolutionChainsInitialState {
     all: PokemonEvolutionChainsType
 }
 
 export const slice = createSlice({
-    name: 'evolutions',
+    name: 'evolutionChains',
     initialState: {
-        all: {
-            count: 468,
-            results: [],
-            next: '',
-            previous: ''
-        },
+        all: {}
     },
     reducers: {
-        setEvolution: (state: EvolutionsState, action: { payload: EvolutionsState }) => {
-            return state.all = action.payload
+        setEvolutionChains: (state: EvolutionChainsInitialState, action: { payload: PokemonEvolutionChainsType }) => {
+            state.all = action.payload
         },
     }
 })
 
-export const { setPokemon, setPokemons } = slice.actions
+export const { setEvolutionChains } = slice.actions
 export default slice.reducer
