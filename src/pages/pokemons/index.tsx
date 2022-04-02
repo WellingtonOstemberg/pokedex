@@ -88,7 +88,7 @@ export const Pokemons = () => {
 
                 <li className="page-item">
                     <button onClick={handlePrevious} className="page-link">Previous</button>
-                </li>
+                </li> 
 
                 <li className="page-item">
                     <button onClick={handleNext} className="page-link">Next</button>
