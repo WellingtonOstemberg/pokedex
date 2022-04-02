@@ -1,5 +1,14 @@
 //Berries 
-
+export type PokemonsBerriesResultSubType = {
+    name?: string
+    url?: string
+}
+export type AllBerriesType = {
+    count?: number
+    next?: string | null
+    previous?: string | null
+    results?: PokemonsBerriesResultSubType[]
+}
 export type PokemonBerriesFlavorsSubType = {
     potency?: number
     flavor?: {
@@ -8,7 +17,7 @@ export type PokemonBerriesFlavorsSubType = {
     }
 }
 
-export type PokemonBerriesType = {
+export type PokemonBerryType = {
     id?: number
     name?: string
     growth_time?: number

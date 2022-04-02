@@ -39,43 +39,7 @@ export const Header = () => {
                 {/* <li className="nav-item">
                         <Link className="nav-link" to="/movies/top-rated">Avaliados</Link>
                     </li> */}
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="/"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Filmes
-                  </a>
-                  <ul
-                    className="dropdown-menu"
-                    aria-labelledby="navbarDropdown"
-                  >
-                    <li>
-                      <Link className="dropdown-item" to="/movies">
-                        Todos
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="/movies/top-rated">
-                        Mais bem avaliados
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="/movies/popular">
-                        Populares
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="/movies/upcoming">
-                        Novos Filmes
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
+    
               </ul>
               <form className="d-flex">
                 <input

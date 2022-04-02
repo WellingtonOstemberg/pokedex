@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
+import berriesReducer from './reducers/berriesReducer'
 import pokemonsReducer from './reducers/pokemonsReducer'
 
 export const store = configureStore({
     reducer: {
         pokemons: pokemonsReducer,
+        berries: berriesReducer,
     }
 })
 

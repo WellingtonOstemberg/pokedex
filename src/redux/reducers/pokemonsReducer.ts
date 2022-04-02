@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { AllPokemonsType } from '../../ts/pokemons'
+import { PokemonsType } from '../../ts/pokemons'
 
 export interface PokemonsInitialState {
-    all: AllPokemonsType
+    all: PokemonsType
     one: any
 }
 
@@ -44,7 +44,7 @@ export const slice = createSlice({
         }
     },
     reducers: {
-        setPokemons: (state: PokemonsInitialState, action: { payload: AllPokemonsType }) => {
+        setPokemons: (state: PokemonsInitialState, action: { payload: PokemonsType }) => {
             state.all = action.payload
         },
         setPokemon: (state: PokemonsInitialState, action: { payload: any }) => {

@@ -1,17 +1,44 @@
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { setPokemons } from "../../redux/reducers/pokemonsReducer"
-import { getAllPokemons } from "../../services/pokemons"
-import { AllPokemonsResultType, AllPokemonsType } from "../../ts/pokemons"
+import { getAllBerries, getAllPokemons } from "../../services/pokemons"
+import { PokemonsResultsSubType, PokemonsType, AllBerriesType, EvolutionChainsType} from "../../ts"
 import {Navigate} from 'react-router-dom'
+import { setBerries } from "../../redux/reducers/berriesReducer"
+import {setPokemonEvolutionChains} from "../../redux/reducers"
 
 export const Pokemons = () => {
     const pokemons = useAppSelector(state => state.pokemons)
+    const berries = useAppSelector(state => state.berries)
+    const evolution = useAppSelector(state => state.evolution)
     const dispatch = useAppDispatch()
 
+    //Evolution
+    useEffect(() => {
+        const fillEvolution = async () => {
+          const changeEvolution = (evolution: PokemonEvolutionChainsType) =>
+          dispatch(setPokemonEvolutionChains (evolution));
+            const response = await getPokemonEvolutionChainsType()
+            changeEvolution(response)
+        }
+        fillEvolution()
+      }, [dispatch])
+
+      //Berries
+    useEffect(() => {
+        const fillBerries = async () => {
+          const changeBerries = (berries: AllBerriesType) =>
+          dispatch(setBerries(berries));
+            const response = await getAllBerries()
+            changeBerries(response)
+        }
+        fillBerries()
+      }, [dispatch])
+
+      //Pokemon
     useEffect(() => {
       const fillPokemons = async () => {
-        const changePokemons = (pokemons: AllPokemonsType) =>
+        const changePokemons = (pokemons: PokemonsType) =>
         dispatch(setPokemons(pokemons));
           const response = await getAllPokemons()
           changePokemons(response)
@@ -26,7 +53,7 @@ export const Pokemons = () => {
     const  handlePrevious = () => {
         if (pokemons.all.previous) {
             const fillPokemons = async () => {
-                const changePokemons = (pokemons: AllPokemonsType) =>
+                const changePokemons = (pokemons: PokemonsType) =>
                 dispatch(setPokemons(pokemons));
                   const response = await getAllPokemons(pokemons.all.previous)
                   changePokemons(response)
@@ -37,7 +64,7 @@ export const Pokemons = () => {
     const  handleNext = () => {
         if (pokemons.all.next) {
             const fillPokemons = async () => {
-                const changePokemons = (pokemons: AllPokemonsType) =>
+                const changePokemons = (pokemons: PokemonsType) =>
                 dispatch(setPokemons(pokemons));
                   const response = await getAllPokemons(pokemons.all.next)
                   changePokemons(response)
@@ -45,13 +72,15 @@ export const Pokemons = () => {
               fillPokemons()
         }
     }
-    
+    useEffect(()=>{
+        console.log(berries)
+    },[berries])
     
     return (
         <>
             <h1>Pokemons</h1>
             <ul className="list-group">
-                {pokemons.all.results.map((pokemon: AllPokemonsResultType) => {
+                {pokemons.all.results.map((pokemon: PokemonsResultsSubType) => {
                     return <li key={pokemon.url} className="list-group-item">{pokemon.name}</li>
                 })}
             </ul>

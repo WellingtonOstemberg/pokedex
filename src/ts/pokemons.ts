@@ -348,7 +348,6 @@ export type PokemonPokemonSpritesType = {
                 front_default?: string
                 front_gray?: string
             }
-
         }
         generation_ii?: {
             crystal?: {

@@ -1,5 +1,5 @@
 //Evolution Chains
-export type EvolutionChainsEvolvesToEvolutionDetailsSubType = {
+export type PokemonEvolutionChainsEvolvesToEvolutionDetailsSubType = {
     item?: null
     trigger?: {
         name?: string
@@ -24,16 +24,16 @@ export type EvolutionChainsEvolvesToEvolutionDetailsSubType = {
 }
 
 
-export type EvolutionChainsEvolvesToSubType = {
+export type PokemonEvolutionChainsEvolvesToSubType = {
     is_baby?: boolean
     species?: {
         name?: string
         url?: string
     }
-    evolution_details?: EvolutionChainsEvolvesToEvolutionDetailsSubType[]
+    evolution_details?: PokemonEvolutionChainsEvolvesToEvolutionDetailsSubType[]
 }
 
-export type EvolutionChainsType = {
+export type PokemonEvolutionChainsType = {
     id?: number
     baby_trigger_item?: null
     chain?: {
@@ -43,7 +43,7 @@ export type EvolutionChainsType = {
             url?: string
             evolution_details?: null
         }
-        evolves_to?: EvolutionChainsEvolvesToSubType[]
+        evolves_to?: PokemonEvolutionChainsEvolvesToSubType[]
     }
 }
 // Evolution Triggers 
