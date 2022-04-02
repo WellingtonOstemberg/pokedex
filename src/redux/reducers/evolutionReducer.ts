@@ -3,7 +3,6 @@ import { PokemonEvolutionChainsType } from '../../ts/evolution'
 
 export interface EvolutionsState {
     all: PokemonEvolutionChainsType
-    one: any
 }
 
 export const slice = createSlice({
@@ -18,7 +17,7 @@ export const slice = createSlice({
     },
     reducers: {
         setEvolution: (state: EvolutionsState, action: { payload: EvolutionsState }) => {
-            state.all = action.payload
+            return state.all = action.payload
         },
     }
 })

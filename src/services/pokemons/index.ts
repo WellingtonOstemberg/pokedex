@@ -14,7 +14,7 @@ export const getAllBerries = async () => {
     const response: AllBerriesType = await request.json()
     return response
 }
-export const getEvolutionChainsType = async () => {
+export const getAllEvolutionChainsType = async () => {
     const request = await fetch('https://pokeapi.co/api/v2/evolution-chain/')
     const response: EvolutionChainsType = await request.json()
     return response
